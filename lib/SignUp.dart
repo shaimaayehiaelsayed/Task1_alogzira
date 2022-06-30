@@ -64,11 +64,11 @@ class signUp extends StatelessWidget {
                         children: const [
                           Text(
                             "Help",
-                            style: TextStyle(color: Colors.blue),
+                            style: TextStyle(color:Color(0xB752A067)),
                           ),
                           Icon(
                             Icons.help,
-                            color: Colors.blue,
+                            color: Color(0xB752A067),
                           ),
                         ],
                       ),
@@ -77,7 +77,7 @@ class signUp extends StatelessWidget {
                 ),
                 Text("Email"),
                 Container(
-                  padding: const EdgeInsets.only(left: 8),
+                 // padding: const EdgeInsets.only(left: 8),
                   margin: const EdgeInsets.only(top: 8),
                   height: 48,
                   width: double.infinity,
@@ -87,11 +87,12 @@ class signUp extends StatelessWidget {
                     children: const [
                       Expanded(
                           child: InputField(
-                            desc: "enter email",
+                            desc: "Eg:example@gmail.com",
                           )),
                     ],
                   ),
                 ),
+                const SizedBox(height: 15,),
                 Text("Phone Number"),
                 Container(
                   margin: const EdgeInsets.only(top: 8),
@@ -115,11 +116,12 @@ class signUp extends StatelessWidget {
                       ),
                       const Expanded(
                           child: InputField(
-                            desc: "eg:5267828929",
+                            desc: "Eg:5267828929",
                           )),
                     ],
                   ),
                 ),
+                const SizedBox(height: 15,),
                 Text("Password"),
                 Container(
                   padding: const EdgeInsets.only(left: 8),
@@ -132,7 +134,7 @@ class signUp extends StatelessWidget {
                     children: const [
                       Expanded(
                           child: InputField(
-                            desc: "enter Password",
+                            desc: "Password",
                             suffix: Icons.remove_red_eye,
                           )
                       ),
@@ -140,12 +142,12 @@ class signUp extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 25,
                 ),
                 DefaultButton(
                   text: 'Register',
                   press: () {},
-                  backgroundColor: Colors.blue,
+                  backgroundColor:Color(0xB752A067),
                   color: Colors.white,
                 ),
                 const SizedBox(
@@ -167,7 +169,7 @@ class signUp extends StatelessWidget {
                   text: 'Sign with Google',
                   press: () {},
                   backgroundColor: Colors.white,
-                  color: Colors.blue,
+                  color: Color(0xB752A067),
                   // imageIcon:  const Icon(MdiIcons.google),
                 ),
                 const SizedBox(
@@ -185,7 +187,7 @@ class signUp extends StatelessWidget {
                       },
                       child: const Text(
                         "sign to here",
-                        style: TextStyle(color: Colors.blue),
+                        style: TextStyle(color:Color(0xB752A067)),
                       ),
                     )
                   ],
@@ -207,7 +209,7 @@ class signUp extends StatelessWidget {
                     },
                     child: const Text(
                       "Terms and conditions",
-                      style: TextStyle(color: Colors.blue),
+                      style: TextStyle(color: Color(0xB752A067)),
                     ),
                   ),
                 )

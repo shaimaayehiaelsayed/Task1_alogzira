@@ -19,24 +19,25 @@ class _BodyState extends State<Body> {
     {
 
       "image": "assets/images/splash_1.png",
-      "text": "Welcome to Tokoto, Let’s shop!"
+      "text": "Welcome to Travling, Let’s Go!"
     },
     {
 
       "image": "assets/images/splash_2.png",
-      "text": "We help people conect with store \naround United State of America"
+      "text": "We help people conect with Airport \naround United State of America"
     },
     {
       "image": "assets/images/splash_3.png",
-      "text": "We show the easy way to shop. \nJust stay at home with us"
+      "text": "We make the easy way to Ticket. \nJust stay at home with us"
 
     },
   ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SizedBox(
+      child: Container(
         width: double.infinity,
+
         child: Column(
           children: <Widget>[
             Expanded(
@@ -59,7 +60,7 @@ class _BodyState extends State<Body> {
               flex: 2,
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(20)),
+                    horizontal: getProportionateScreenWidth(40)),
                 child: Column(
                   children: <Widget>[
                     Spacer(),
@@ -73,13 +74,14 @@ class _BodyState extends State<Body> {
                     //Spacer(flex: 2),
                     SizedBox(height: 40,),
                     DefaultButton(
-                      text: "Continue",
+                      text: "Get Start",
                         press: () {  Navigator.push(context,
                         MaterialPageRoute(builder: (_) => Login()));
                                             },
-                      Border: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                      backgroundColor: Colors.blue,
+                      Border:  BorderRadius.circular(15),
+                      backgroundColor:Color(0xB752A067),
                       color: Colors.white,
+
                     ),
                     SizedBox(height: 20,),
                     Row(
@@ -93,7 +95,7 @@ class _BodyState extends State<Body> {
                           },
                           child: const Text(
                             "Sign Up",
-                            style: TextStyle(color: Colors.blue),
+                            style: TextStyle(color: Color(0xB752A067)),
                           ),
                         )
                       ],

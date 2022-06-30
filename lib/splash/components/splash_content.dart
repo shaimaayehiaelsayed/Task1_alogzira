@@ -28,30 +28,35 @@ class SplashContent extends StatelessWidget {
                 child: TextButton(onPressed: null, child: Text("Skip")),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Colors.blue),
+                    color: Color(0xB7D7F3D9)),
               ),
             ],
           ),
         ),
         const Spacer(flex: 3,),
         Text(
-          "TOKOTO",
+          "TRAVLING",
           style: TextStyle(
             fontSize: getProportionateScreenWidth(36),
-            color: Colors.blue,
+            color: Color(0xB752A067),
             fontWeight: FontWeight.bold,
           ),
         ),
         const Spacer(),
         Image.asset(
           image!,
-          height: getProportionateScreenHeight(265),
-          width: getProportionateScreenWidth(235),
+          height: getProportionateScreenHeight(300),
+          width: getProportionateScreenWidth(double.infinity),
         ),
         const Spacer(flex: 2),
         Text(
           text!,
           textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600
+          ),
+
         ),
       ],
     );

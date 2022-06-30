@@ -10,7 +10,7 @@ class DefaultButton extends StatelessWidget {
   }) : super(key: key);
   final String? text;
   final Function? press;
-  final OutlinedBorder? Border;
+  final BorderRadius? Border;
    final Color? backgroundColor;
    final Color? color;
    final Widget? icon;
@@ -20,6 +20,7 @@ class DefaultButton extends StatelessWidget {
       height:  45,
       width: double.infinity,
       decoration: BoxDecoration(
+        borderRadius: Border,
         color: backgroundColor!,
         boxShadow: const [
           BoxShadow(
@@ -35,7 +36,7 @@ class DefaultButton extends StatelessWidget {
            icon??Container(),
           TextButton(
             style: TextButton.styleFrom(
-              shape: Border,//RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              //shape: Border,//RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               primary: Colors.white,
             ),
             onPressed: press as void Function()?,

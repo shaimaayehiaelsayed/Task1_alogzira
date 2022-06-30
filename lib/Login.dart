@@ -13,14 +13,20 @@ class Login extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: 300,
-            width: double.infinity,
-            child: Image.asset(
-              "assets/images/login.png",
-              fit: BoxFit.fill,
+
+             Stack(
+               children: [
+                 Container(
+                  height: 300,
+                  width: double.infinity,
+                  child: Image.asset(
+                    "assets/images/login.png",
+                    fit: BoxFit.fill,
+                  ),
             ),
-          ),
+                // const Icon(Icons.arrow_back_ios,color: Colors.black,),
+               ],
+             ),
           const SizedBox(
             height: 10,
           ),
@@ -58,11 +64,11 @@ class Login extends StatelessWidget {
                         children: const [
                           Text(
                             "Help",
-                            style: TextStyle(color: Colors.blue),
+                            style: TextStyle(color: Color(0xB752A067)),
                           ),
                           Icon(
                             Icons.help,
-                            color: Colors.blue,
+                            color:Color(0xB752A067),
                           ),
                         ],
                       ),
@@ -70,7 +76,7 @@ class Login extends StatelessWidget {
                   ],
                 ),
 
-
+                SizedBox(height: 15,),
                 Text("Phone Number"),
                 Container(
                   // padding: const EdgeInsets.only(left: 2),
@@ -105,7 +111,7 @@ class Login extends StatelessWidget {
                 DefaultButton(
                   text: 'Sign in',
                   press: () {},
-                  backgroundColor: Colors.blue,
+                  backgroundColor:Color(0xB752A067),
                   color: Colors.white,
                 ),
                 const SizedBox(
@@ -115,9 +121,9 @@ class Login extends StatelessWidget {
                   child: Text(
                     'Or',
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 22,
                       fontWeight: FontWeight.w300,
-                      color: Colors.black26,
+                      color: Colors.black45,
                     ),
                   ),
                 ),
@@ -128,7 +134,7 @@ class Login extends StatelessWidget {
                   text: 'Sign with Google',
                   press: () {},
                   backgroundColor: Colors.white,
-                  color: Colors.blue,
+                  color: Color(0xB752A067),
                   // imageIcon:  const Icon(MdiIcons.google),
                 ),
                 const SizedBox(
@@ -145,7 +151,7 @@ class Login extends StatelessWidget {
                       },
                       child: const Text(
                         "Register here",
-                        style: TextStyle(color: Colors.blue),
+                        style: TextStyle(color: Color(0xB752A067)),
                       ),
                     )
                   ],
