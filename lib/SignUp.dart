@@ -1,9 +1,14 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'Button.dart';
+import 'Login.dart';
 import 'TextFeild.dart';
 
 class signUp extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +54,10 @@ class signUp extends StatelessWidget {
                         color: Colors.black,
                       ),
                     ),
-                    Spacer(key: key,flex: 3,),
+                    Spacer(
+                      key: key,
+                      flex: 3,
+                    ),
                     TextButton(
                       onPressed: () {},
                       child: Row(
@@ -67,18 +75,78 @@ class signUp extends StatelessWidget {
                     )
                   ],
                 ),
-                const InputField(desc: 'eg:example@gmail.com', title: 'Email ',),
-                const InputField(desc: 'eg:456788889', title: 'Phone Number ',),
-                const InputField(desc: 'Password', title: 'Password ',suffix: Icons.remove_red_eye,
-                  isPassword: true,),
+                Text("Email"),
+                Container(
+                  padding: const EdgeInsets.only(left: 8),
+                  margin: const EdgeInsets.only(top: 8),
+                  height: 48,
+                  width: double.infinity,
+                  decoration:
+                  BoxDecoration(border: Border.all(color: Colors.grey)),
+                  child: Row(
+                    children: const [
+                      Expanded(
+                          child: InputField(
+                            desc: "enter email",
+                          )),
+                    ],
+                  ),
+                ),
+                Text("Phone Number"),
+                Container(
+                  margin: const EdgeInsets.only(top: 8),
+                  height: 48,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey)),
+                  child: Row(
+                    children: [
+                      CountryCodePicker(
+                        onChanged: print,
+                        // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
+                        initialSelection: 'IT',
+                        showCountryOnly: false,
+                        showOnlyCountryWhenClosed: false,
+                        favorite: ['+39', 'FR'],
+                        // showFlagDialog: false,
+                        showFlag: false,
+                        // alignLeft: true,
+                        showDropDownButton: true,
+                      ),
+                      const Expanded(
+                          child: InputField(
+                            desc: "eg:5267828929",
+                          )),
+                    ],
+                  ),
+                ),
+                Text("Password"),
+                Container(
+                  padding: const EdgeInsets.only(left: 8),
+                  margin: const EdgeInsets.only(top: 8),
+                  height: 48,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey)),
+                  child: Row(
+                    children: const [
+                      Expanded(
+                          child: InputField(
+                            desc: "enter Password",
+                            suffix: Icons.remove_red_eye,
+                          )
+                      ),
+                    ],
+                  ),
+                ),
                 const SizedBox(
                   height: 10,
                 ),
-                MyButton(
+                DefaultButton(
                   text: 'Register',
-                  click: () {},
-                  background: Colors.blue,
-                  textColor: Colors.white,
+                  press: () {},
+                  backgroundColor: Colors.blue,
+                  color: Colors.white,
                 ),
                 const SizedBox(
                   height: 10,
@@ -93,12 +161,13 @@ class signUp extends StatelessWidget {
                     ),
                   ),
                 ),
-                MyButton(
-                  //  imageIcon:  Image(image:const AssetImage("assets/images/google.png") ),
+                DefaultButton(
+                  icon: Container(
+                    child: SvgPicture.asset('assets/icons/google-icon.svg'),),
                   text: 'Sign with Google',
-                  click: () {},
-                  background: Colors.white,
-                  textColor: Colors.blue,
+                  press: () {},
+                  backgroundColor: Colors.white,
+                  color: Colors.blue,
                   // imageIcon:  const Icon(MdiIcons.google),
                 ),
                 const SizedBox(
@@ -107,14 +176,15 @@ class signUp extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Doesn't has any account?"),
+                    const Text("Has any account?"),
                     TextButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) => signUp()));
+                        Navigator.push(
+                            context, MaterialPageRoute(builder: (_) =>
+                            signUp()));
                       },
                       child: const Text(
-                        "Register here",
+                        "sign to here",
                         style: TextStyle(color: Colors.blue),
                       ),
                     )
@@ -125,10 +195,22 @@ class signUp extends StatelessWidget {
                 ),
                 const Center(
                   child: Text(
-                    'use the application according to policy rules.Any\n kinds of violations will be subject sanctions',
+                    'Be regestering your account .you are agree to our',
                     style: TextStyle(color: Colors.black26),
                   ),
                 ),
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context, MaterialPageRoute(builder: (_) => Login()));
+                    },
+                    child: const Text(
+                      "Terms and conditions",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
@@ -136,4 +218,5 @@ class signUp extends StatelessWidget {
       ),
     );
   }
+
 }

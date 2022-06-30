@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:task_1/SignUp.dart';
-
 import 'Button.dart';
+import 'TextFeild.dart';
 
 class Login extends StatelessWidget {
   @override
@@ -51,7 +51,7 @@ class Login extends StatelessWidget {
                         color: Colors.black,
                       ),
                     ),
-                    Spacer(key: key,flex: 3,),
+                    Spacer(key: key, flex: 3,),
                     TextButton(
                       onPressed: () {},
                       child: Row(
@@ -69,22 +69,44 @@ class Login extends StatelessWidget {
                     )
                   ],
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const Text(
-                  'Phone Number',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.black,
+
+
+                Text("Phone Number"),
+                Container(
+                  // padding: const EdgeInsets.only(left: 2),
+                  margin: const EdgeInsets.only(top: 8),
+                  height: 48,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey)),
+                  child: Row(
+                    children: [
+                      CountryCodePicker(
+                        onChanged: print,
+                        // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
+                        initialSelection: 'IT',
+                        showCountryOnly: false,
+                        showOnlyCountryWhenClosed: false,
+                        favorite: ['+39', 'FR'],
+                        // showFlagDialog: false,
+                        showFlag: false,
+                        // alignLeft: true,
+                        showDropDownButton: true,
+                      ),
+                      const Expanded(
+                          child: InputField(desc: "eg:5267828929",)
+                      ),
+                    ],
                   ),
                 ),
-                MyButton(
+                const SizedBox(
+                  height: 20,
+                ),
+                DefaultButton(
                   text: 'Sign in',
-                  click: () {},
-                  background: Colors.blue,
-                  textColor: Colors.white,
+                  press: () {},
+                  backgroundColor: Colors.blue,
+                  color: Colors.white,
                 ),
                 const SizedBox(
                   height: 20,
@@ -99,12 +121,14 @@ class Login extends StatelessWidget {
                     ),
                   ),
                 ),
-                MyButton(
-                  //  imageIcon:  Image(image:const AssetImage("assets/images/google.png") ),
+                DefaultButton(
+
+                  icon: Container(
+                    child: SvgPicture.asset('assets/icons/google-icon.svg'),),
                   text: 'Sign with Google',
-                  click: () {},
-                  background: Colors.white,
-                  textColor: Colors.blue,
+                  press: () {},
+                  backgroundColor: Colors.white,
+                  color: Colors.blue,
                   // imageIcon:  const Icon(MdiIcons.google),
                 ),
                 const SizedBox(
@@ -117,7 +141,7 @@ class Login extends StatelessWidget {
                     TextButton(
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (_) => signUp()));
+                            MaterialPageRoute(builder: (_) => Login()));
                       },
                       child: const Text(
                         "Register here",
@@ -126,6 +150,7 @@ class Login extends StatelessWidget {
                     )
                   ],
                 ),
+                //SvgPicture.asset('assets/icons/google-icon.svg'),
                 const SizedBox(
                   height: 30,
                 ),
@@ -142,4 +167,5 @@ class Login extends StatelessWidget {
       ),
     );
   }
+
 }

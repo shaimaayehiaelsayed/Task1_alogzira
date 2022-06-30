@@ -1,40 +1,54 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-class MyButton extends StatelessWidget{
- final String text ;
-  final VoidCallback click;
-  final Color textColor;
-  final Color background;
-  //final Icon? imageIcon;
- MyButton({
+import 'package:task_1/size_config.dart';
+
+class DefaultButton extends StatelessWidget {
+  const DefaultButton({
     Key? key,
-    required this.text,
-    required this.click,
-     required this.background,
-    required this.textColor,
-  //  this.imageIcon,
+    this.text,
+    this.press, this.Border, this.backgroundColor,this.color, this.icon
   }) : super(key: key);
+  final String? text;
+  final Function? press;
+  final OutlinedBorder? Border;
+   final Color? backgroundColor;
+   final Color? color;
+   final Widget? icon;
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      height: 50,
-      minWidth: double.infinity,
-      onPressed: click,
+    return Container(
+      height:  45,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: backgroundColor!,
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black26,
+            blurStyle :BlurStyle.outer,
+          )
+        ]
+      ),
+
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-         // imageIcon!,
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: 16,
-              color: textColor
+           icon??Container(),
+          TextButton(
+            style: TextButton.styleFrom(
+              shape: Border,//RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              primary: Colors.white,
+            ),
+            onPressed: press as void Function()?,
+            child: Text(
+              text!,
+              style: TextStyle(
+                fontSize: getProportionateScreenWidth(18),
+                color: color!,
+              ),
             ),
           ),
         ],
       ),
-      color:background,
     );
-  }}
-  
+  }
+}
